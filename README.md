@@ -3,7 +3,7 @@
 - [Background](#background)
 - [Install](#install)
 - [Usage](#usage)
-- [Quantitative Result](#quantitative-result)
+- [Result](#result)
 - [Contributing](#contributing)
 - [Acknowledgements](#acknowledgements)
 
@@ -33,15 +33,44 @@ We generated a multimodal dataset containing 20,000 RGB-D  data with 1,209,951 i
 
 Here we provide a small dataset containing 4000 RGB-D training data and 400 test data, you can download it [here](https://drive.google.com/drive/folders/1ggZXYTYaE5fEqmtBNdbWQEwS4TeO_n0K).
 
+After downloading the dataset you need to change the dataset path in this configuration folder：`./configs/rgbd-inst/rgbdinst_r50_fpn_mstrain_480-800_3x_coco.py`. Our dataset class name is **surface**.
+
 
 ### - Model
-Here we provide a [model weight](https://drive.google.com/drive/folders/1Bqk9WpueXeedxWn0Y2CKoARU_znpsiUy), you can load our weights for training or train your own model from 0 using the small dataset we provide.
+Here we provide a [model weight](https://drive.google.com/drive/folders/1Bqk9WpueXeedxWn0Y2CKoARU_znpsiUy), you can load our weights for training or testing  or train your own model from 0 using the small dataset we provide.
 
 
 ### - Train
-
+- **Single GPU**
+```shell
+python tools/train.py configs/rgbd-inst/rgbdinst_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py
+```
+- **Multi GPUS**
+```shell
+./tools/dist_train.sh configs/rgbd-inst/rgbdinst_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py 8
+```
 
 ### -Test
+- **Single GPU**
+```shell
+python tools/test.py configs/rgbd-inst/rgbdinst_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py PATH/TO/CKPT.pth --eval bbox segm
+```
+
+
+- **Multi GPUS**
+
+```shell
+./tools/dist_test.sh configs/rgbd-inst/rgbdinst_r50_fpn_300_proposals_crop_mstrain_480-800_3x_coco.py PATH/TO/CKPT.pth 8 --eval bbox segm
+```
+## Result
+
+### Quantitative results
+
+
+### Qualitative results
 
 
 
+## Contributing
+
+## Acknowledgements

@@ -26,7 +26,9 @@ Please note that you may have trouble installing the installation package `mmcv`
 pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/{cu_version}/{torch_version}/index.html
 ```
 Where cu_version and torch_version are the cuda and torch versions. If your cuda version is 11.0 and torch is version 1.7.0. The installation command is
-`pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.0/index.html`.
+```shell
+pip install mmcv-full -f https://download.openmmlab.com/mmcv/dist/cu110/torch1.7.0/index.html
+```
 
 ## Usage
 
